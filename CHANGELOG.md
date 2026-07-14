@@ -34,8 +34,8 @@ Chronology of how the SFS 2.0 + RP2040‑Zero USB filament sensor came together
   ~3.45 mm, BOOT/RESET holes ovalised 3.0 × 5.0, PCB standoffs re‑trimmed to seat on
   the board face (Y 56.60 + 0.10 clearance), **2020 mounting tab** added.
 - `printer.cfg` bring‑up block prepared (safe mode, `pause_on_runout: False`).
-- **`REC_body_v1.stl` re‑exported** (63 536 facets, watertight) — the current print
-  file.
+- **`REC_body_v1.stl` re‑exported** (63 536 facets, watertight) — print file at the
+  time, since replaced by the definitive `SFS_Support_2020.stl` (see 07‑15).
 - USB‑C opening widened by 0.3 mm (commit `elargir_usbc_+0.3`); later noted the
   *tight* axis is the ~3.4 mm connector‑height axis, not the one widened.
 
@@ -46,6 +46,16 @@ Chronology of how the SFS 2.0 + RP2040‑Zero USB filament sensor came together
   load/unload jogs (its motion state updates even when the sensor is `ENABLE=0`).
 - Confirmed empirically: **PTFE ID2/OD4 guide into the SFS bore is mandatory** on push
   (without it the filament buckles at the junction).
+
+## 2026‑07‑15 — Definitive STL
+- **`SFS_Support_2020.stl` delivered by the author** with final corrections —
+  59 488 facets, watertight (0 open edges), 69.3 × 47.5 × 24.7 mm, ≈ 13.7 cm³.
+  Replaces `REC_body_v1.stl`.
+- FreeCAD source updated to **`SFS20_Support_V4.FCStd`** (direct BREP modelling,
+  not a parametric feature tree — provided for adjustments).
+- Retention method settled: the RP2040‑Zero is **hot‑glued at its four corners**
+  in the open cavity — simple and it doesn't move.
+- CAD screenshots added to `docs/img/`.
 
 ## 2026‑07‑15 — This repo
 - Consolidated hardware, wiring, firmware, Klipper integration and CAD into a
@@ -59,7 +69,7 @@ Chronology of how the SFS 2.0 + RP2040‑Zero USB filament sensor came together
 ---
 
 ### Notes on state
-- The receptacle is **functional**; the FreeCAD source (`SFS20_Support_V2.FCStd`) and
-  the print‑ready STL are both in `cad/`.
+- The receptacle is **functional**; the FreeCAD source (`SFS20_Support_V4.FCStd`) and
+  the definitive print‑ready STL (`SFS_Support_2020.stl`) are both in `cad/`.
 - The config to use is [`klipper/sfs.cfg`](klipper/sfs.cfg) — adapt the serial to your
   board.

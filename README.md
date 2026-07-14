@@ -57,16 +57,17 @@ sensor objects:
 | [`docs/04-klipper-integration.md`](docs/04-klipper-integration.md) | `printer.cfg` blocks, safe bring‑up, usage |
 | [`docs/05-cad-bracket.md`](docs/05-cad-bracket.md) | The printed receptacle: features, print settings, source |
 | [`klipper/sfs.cfg`](klipper/sfs.cfg) | Ready‑to‑`[include]` Klipper config snippet |
-| [`cad/REC_body_v1.stl`](cad/REC_body_v1.stl) | Print‑ready one‑piece receptacle (SFS 2.0 + RP2040‑Zero) |
-| [`cad/SFS20_Support_V2.FCStd`](cad/SFS20_Support_V2.FCStd) | FreeCAD source of the receptacle |
+| [`cad/SFS_Support_2020.stl`](cad/SFS_Support_2020.stl) | Print‑ready one‑piece receptacle (SFS 2.0 + RP2040‑Zero), definitive |
+| [`cad/SFS20_Support_V4.FCStd`](cad/SFS20_Support_V4.FCStd) | FreeCAD source (direct modelling, not parametric — for adjustments) |
 | [`firmware/`](firmware/) | Notes on the stock‑Klipper RP2040 build (no custom C) |
 
 ---
 
 ## Quick start (TL;DR)
 
-1. **Print** `cad/REC_body_v1.stl` (ABS/ASA, 4 walls, 0.2 mm — see
-   [docs/05](docs/05-cad-bracket.md)).
+1. **Print** `cad/SFS_Support_2020.stl` (ABS/ASA, 4 walls, 0.2 mm — see
+   [docs/05](docs/05-cad-bracket.md)). Seat the pico in its cavity and **hot‑glue it
+   at the four corners** — that's the retention method, and it doesn't move.
 2. **Flash** the RP2040‑Zero with **stock Klipper, RP2040, USB, Katapult bootloader**
    ([docs/03](docs/03-firmware-flashing.md)).
 3. **Wire** SFS → Pico: **VCC → 3V3 (never 5V)**, GND → GND, motion → **GP0**,
@@ -113,8 +114,11 @@ SFS bore on both ports** — without it, pushed filament buckles at the junction
 **Functional.** Built and running on a Voron 2.4: the receptacle prints and fits, the
 RP2040‑Zero runs stock Klipper over USB (Katapult in place — no BOOT button needed for
 reflash), and both sensor objects run in Klipper with the SFS powered at 3V3. The
-bracket still has a few optional refinements open (pico Y‑retention, flush lip) but
-is a working part.
+definitive STL isn't claimed perfect — the pico is simply **hot‑glued at its four
+corners** and doesn't move; a couple of optional refinements remain listed in
+[docs/05](docs/05-cad-bracket.md).
+
+![Receptacle with the RP2040-Zero seated in its cavity](docs/img/receptacle-pico-cavity.jpg)
 
 See [`CHANGELOG.md`](CHANGELOG.md) for the build history.
 

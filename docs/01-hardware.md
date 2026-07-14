@@ -6,7 +6,8 @@
 |-----|------|-------|
 | 1 | **BigTreeTech Smart Filament Sensor (SFS) 2.0** | Owned. Runout switch + motion encoder in one body. |
 | 1 | **Waveshare RP2040‑Zero** | The USB MCU. 18 × 23.5 mm. **Not 5 V‑tolerant.** |
-| 1 | Printed receptacle | `cad/REC_body_v1.stl` — houses both parts as one piece. |
+| 1 | Printed receptacle | `cad/SFS_Support_2020.stl` — houses both parts as one piece. |
+| — | Hot glue | Fix the RP2040‑Zero in its cavity at the four corners. |
 | 2 | **PC4‑M6** pneumatic fittings | Supplied with the SFS; one at each filament port. |
 | 1 | **PTFE tube ID2 / OD4** | **Mandatory** guide into the SFS bore (see below). |
 | 2 | **M3×12 button‑head** screws | Fix the receptacle to the SFS mounting face (self‑tapping into the SFS). The receptacle's counterbores are sized for button heads; the M3×6 supplied by BTT are too short through the receptacle. |
