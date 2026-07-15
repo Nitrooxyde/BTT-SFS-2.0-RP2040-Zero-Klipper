@@ -1,16 +1,17 @@
 # TeamFDM reply — thread #6534 "BTT SFS 2.0 with Leviathan mainboard"
 
-> À poster en réponse au thread (compte user). Ton : retour d'expérience, pas pub.
+> À poster en réponse au thread (compte user). Ton : partage d'une alternative,
+> humble, sans critiquer la carte ni prétendre avoir eu les mêmes soucis.
 > https://www.teamfdm.com/forums/topic/6534-btt-sfs-20-with-leviathan-mainboard/
 
 ---
 
-I ran into the same kind of trouble with the SFS 2.0 (dead dedicated header,
-rails not quite what the label says, hunting for free pins…) and ended up going
-a different route entirely: I gave the sensor **its own MCU**.
+Nice find with PC0/PC1 + the neopixel 5V — glad it works.
 
-A Waveshare **RP2040-Zero** (~$3) flashed as a standard **Klipper USB MCU** reads
-both SFS signals directly:
+If someone lands here and would rather skip the board-specific wiring entirely,
+another route is to give the sensor **its own MCU**: a Waveshare **RP2040-Zero**
+(~$3) flashed as a standard **Klipper USB MCU**, reading both SFS signals
+directly:
 
 ```ini
 [mcu sfs]
@@ -25,20 +26,17 @@ extruder: extruder
 switch_pin: ^sfs:gpio1
 ```
 
-- **Zero mainboard pins**, zero mainboard rails — one USB cable to the Pi.
-- The SFS is powered from the pico's clean **3.3 V** (it's officially rated
-  3.3–5 V per the BTT manual, p.5 — the "5V" in BTT's diagrams is just because
-  their example boards are 5V-tolerant STM32s). ⚠️ If you copy this setup, do
-  power it at 3.3 V: the RP2040 is *not* 5V-tolerant.
-- Both signals are open-collector, so the `^` internal pull-ups do the rest.
-- Works the same on any printer/board — nothing Leviathan-specific to figure out.
+- No mainboard pins or rails involved — one USB cable to the Pi.
+- The SFS runs from the pico's 3.3 V (it's rated 3.3–5 V per the BTT manual,
+  p.5). ⚠️ If you copy this, do power it at 3.3 V — the RP2040 itself is *not*
+  5V-tolerant.
+- Both outputs are switch-to-ground, so the `^` internal pull-ups do the rest.
 
-I designed a one-piece printed receptacle that holds the SFS + pico together and
-mounts on a 2020 extrusion, and wrote up the whole thing (wiring, flashing with
-Katapult, config):
+I put together a one-piece printed receptacle that holds the SFS + pico and
+mounts on a 2020 extrusion, with the wiring/flashing/config written up:
 
 - GitHub (docs + config + STL): https://github.com/Nitrooxyde/BTT-SFS-2.0-RP2040-Zero-Klipper
 - Printables: https://www.printables.com/model/1781579-btt-sfs-20-rp2040-zero-receptacle
 
-Full disclosure: my own project, free/open (MIT + CC-BY). Hope it helps someone
-who lands here with the same wiring headache.
+Full disclosure: my own project, free/open (MIT + CC-BY). Hope it's useful to
+someone.

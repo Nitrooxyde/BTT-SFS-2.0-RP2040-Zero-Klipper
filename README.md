@@ -31,11 +31,9 @@ sensor **its own $3 microcontroller on USB** instead has real advantages:
 
 - **Zero pins needed** on your main or toolhead board — useful when they're full,
   or when you don't want to run signal wires across the printer.
-- **Zero mainboard quirks** — no dedicated filament‑sensor header that mysteriously
-  doesn't respond, no sagging 3.3 V rail, no "5 V" that reads 4.5 V after a diode
-  drop, no hunting for free GPIOs
-  ([a typical example on a Leviathan](https://www.teamfdm.com/forums/topic/6534-btt-sfs-20-with-leviathan-mainboard/)).
-  The module brings its own MCU and its own clean 3V3, identical on every printer.
+- **Board‑agnostic** — no board‑specific headers, voltage rails or pin mappings to
+  figure out; the module brings its own MCU and its own 3.3 V, and works the same
+  on every printer.
 - **Plug‑and‑play** — one USB cable. Move the module between machines, or add it to
   a printer that was never wired for it.
 - **Electrically self‑contained** — the SFS is powered from the Pico's 3V3 pin;
