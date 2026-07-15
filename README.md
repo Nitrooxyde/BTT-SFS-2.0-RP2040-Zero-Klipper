@@ -18,6 +18,10 @@ both into first‑class Klipper objects:
 - `[filament_switch_sensor sfs_switch]` → filament presence
 - `[filament_motion_sensor sfs_motion]` → movement / no‑movement (clog, slip)
 
+**Printed part also published on:**
+[Printables](https://www.printables.com/model/1781579-btt-sfs-20-rp2040-zero-receptacle) ·
+[Cults3D](https://cults3d.com/fr/mod%C3%A8le-3d/divers/standalone-usb-filament-sensor-for-klipper-btt-sfs-2-0-rp2040-zero-receptacl)
+
 ---
 
 ## Why a dedicated USB MCU for a filament sensor?
